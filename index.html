@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting to Project...</title>
+  
+  <!-- Primary: JavaScript Redirect (Instant) -->
+  <script>
+    (function() {
+      
+      // Attempt immediate redirect
+      window.location.replace(`https://github.com/veryclosedai/memories`);
+    })();
+  </script>
+  
+  <!-- Secondary: Meta Refresh (5-second fallback) -->
+  <meta http-equiv="refresh" content="5; url=https://github.com/veryclosedai/memories">
+</head>
+<body>
+  <!-- Tertiary: Manual Link (Final fallback) -->
+  <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+    <h1>Redirecting to Project...</h1>
+    <p>If you're not redirected automatically in 5 seconds, please click:</p>
+    <p id="redirect-link" style="font-size: 18px; margin: 20px;">
+      <a href="https://github.com/veryclosedai/memories" 
+         style="color: #0066cc; text-decoration: underline;">
+        https://github.com/veryclosedai/memories
+      </a>
+    </p>
+    <p style="color: #666; font-size: 14px;">
+      This page should redirect automatically. If it doesn't, GitHub Pages might be processing changes.
+    </p>
+  </div>
+
+  <!-- Dynamic link updater -->
+  <script>
+    // Update link to preserve path/parameters
+    (function() {
+      const newUrl = `https://github.com/veryclosedai/memories`;
+      
+      // Update meta refresh
+      const meta = document.querySelector('meta[http-equiv="refresh"]');
+      if (meta) meta.content = `5; url=${newUrl}`;
+      
+      // Update manual link
+      const linkContainer = document.getElementById('redirect-link');
+      if (linkContainer) {
+        linkContainer.innerHTML = `
+          <a href="${newUrl}" 
+             style="color: #0066cc; text-decoration: underline; 
+                    word-break: break-all; font-size: 16px;">
+            ${newUrl}
+          </a>
+        `;
+      }
+    })();
+  </script>
+</body>
+</html>
